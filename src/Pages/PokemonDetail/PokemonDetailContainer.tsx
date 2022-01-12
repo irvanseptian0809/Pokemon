@@ -45,6 +45,7 @@ const PokemonDetailContainer = () => {
   const handleReleasePokemon = () => {
     setIsModalShow(false)
     setIsCatch(false)
+    resetNickname()
   }
 
   const handleFindPokemon = () => {
@@ -56,10 +57,15 @@ const PokemonDetailContainer = () => {
     setIsModalShow(false)
     setIsModalShow(false)
     addPokemons(data)
+    resetNickname()
   }
 
   const handleNickname = (nickname: string) => {
     dispatch(pokemonDetailSetNickname(nickname))
+  }
+
+  const resetNickname = () => {
+    dispatch(pokemonDetailSetNickname(''))
   }
 
   const props = {

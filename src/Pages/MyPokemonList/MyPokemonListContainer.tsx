@@ -15,10 +15,15 @@ const MyPokemonListContainer = () => {
     setPokemons(getMyPokemons())
   }
 
+  const releaseAllPokemon = () => {
+    removeAllPokemons()
+    setPokemons([])
+  }
+
   const props = {
     pokemons,
     releasePokemon,
-    removeAllPokemons,
+    releaseAllPokemon,
   }
 
   return <MyPokemonListView {...props} />

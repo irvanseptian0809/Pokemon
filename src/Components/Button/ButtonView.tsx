@@ -2,7 +2,7 @@ import './styles.scss'
 
 interface interfaceButtonView {
   label: string,
-  onClick: () => void,
+  onClick?: () => void,
   size?: string,
   isFullWidth?: boolean,
   isDisabled?: boolean,
