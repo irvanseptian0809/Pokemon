@@ -1,0 +1,97 @@
+@import './app.scss';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $color-body;
+  padding: 20px;
+  margin: 0;
+}
+
+.title {
+  color: white;
+}
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul.header {
+  background-color: $yellow-900;
+  padding: 0;
+}
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+.content {
+  background-color: #FFF;
+  padding: 20px;
+}
+.content h2 {
+  padding: 0;
+  margin: 0;
+}
+.content li {
+  margin-bottom: 10px;
+}
+
+.container {
+  width: 900px;
+  margin: 20px auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
+}
+
+.grid div[class]:after {
+  display: block;
+}
+
+.col-2 {
+  grid-column: auto/span 2;
+}
+
+.col-3 {
+  grid-column: auto/span 3;
+}
+
+.col-4 {
+  grid-column: auto/span 4;
+}
+
+.col-6 {
+  grid-column: auto/span 6;
+}
+
+.col-9 {
+  grid-column: auto/span 9;
+}
+
+.col-12 {
+  grid-column: auto/span 12;
+}
+
+@media only screen and (max-width: $mobile) {
+  .container {
+    width: 95%;
+  }
+
+  .col-2{
+    grid-column: auto/span 6;
+  }
+
+  .col-3, .col-9, .col-12 {
+    grid-column: auto/span 12;
+  }
+}
