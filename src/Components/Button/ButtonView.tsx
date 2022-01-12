@@ -5,6 +5,7 @@ interface interfaceButtonView {
   onClick: () => void,
   size?: string,
   isFullWidth?: boolean,
+  isDisabled?: boolean,
   type?: string,
 }
 
@@ -13,12 +14,14 @@ const ButtonView = ({
   onClick,
   size = 'normal',
   isFullWidth = false,
+  isDisabled,
   type = 'default',
 }: interfaceButtonView) => {
   return (
     <button
       className={`button button-${size} button-${type} ${isFullWidth && 'full-width'}`}
       onClick={onClick}
+      disabled={isDisabled}
     >
       {label}
     </button>

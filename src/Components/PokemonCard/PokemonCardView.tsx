@@ -8,6 +8,7 @@ interface interfacePokemonCardView {
   button?: React.ReactNode,
   isOwned?: boolean,
   owned?: number,
+  nickname?: string,
 }
 
 const PokemonCardView = ({
@@ -17,6 +18,7 @@ const PokemonCardView = ({
   button,
   isOwned,
   owned,
+  nickname,
 }: interfacePokemonCardView) => {
   return (
     <div className="pokemon-card" onClick={onClick}>
@@ -29,6 +31,11 @@ const PokemonCardView = ({
         {isOwned && (
           <div className="owned">
             {`Total Owned : ${owned}`}
+          </div>
+        )}
+        {nickname && (
+          <div className="owned">
+            {`Name : ${nickname}`}
           </div>
         )}
         {button && button}

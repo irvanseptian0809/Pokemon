@@ -14,12 +14,12 @@ export const addPokemons = (data: any) => {
   return localStorage.setItem(itemName, JSON.stringify(myPokemons))
 }
 
-export const removePokemon = (id: string) => {
+export const removePokemon = (nickname?: string) => {
   let myPokemons = getMyPokemons()
   myPokemons = {
-    pokemons: myPokemons.filter((data: any) => data.id !== id)
+    pokemons: myPokemons.filter((data: any) => data.nickname !== nickname)
   }
-  return localStorage.setItem(itemName, myPokemons)
+  return localStorage.setItem(itemName, JSON.stringify(myPokemons))
 }
 
 export const removeAllPokemons = () => {

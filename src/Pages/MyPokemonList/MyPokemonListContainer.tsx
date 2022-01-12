@@ -1,21 +1,24 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-
-import { myPokemonListRemove } from '../../Redux/Ducks/myPokemonList'
+import { useEffect, useState } from 'react'
+import { getMyPokemons, removePokemon, removeAllPokemons } from '../../Utils/localStorage'
 
 import MyPokemonListView from './MyPokemonListView'
 
 const MyPokemonListContainer = () => {
-  const dispatch = useDispatch()
-  const myPokemonList = useSelector((state: any) => state.myPokemonList)
+  const [pokemons, setPokemons] = useState([])
 
-  const removePokemon = (nickname: string) => {
-    dispatch(myPokemonListRemove(nickname))
+  useEffect(() => {
+    setPokemons(getMyPokemons())
+  }, [setPokemons, getMyPokemons])
+
+  const releasePokemon = (nickname?: string) => {
+    removePokemon(nickname)
+    setPokemons(getMyPokemons())
   }
 
   const props = {
-    myPokemonList,
-    removePokemon,
+    pokemons,
+    releasePokemon,
+    removeAllPokemons,
   }
 
   return <MyPokemonListView {...props} />

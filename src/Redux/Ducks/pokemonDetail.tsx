@@ -7,6 +7,8 @@ export const POKEMON_DETAIL_FETCH_FAILED = 'POKEMON_DETAIL_FETCH_FAILED'
 export const POKEMON_DETAIL_SPECIES_FETCH = 'POKEMON_DETAIL_SPECIES_FETCH'
 export const POKEMON_DETAIL_SPECIES_FETCH_SUCCESS = 'POKEMON_DETAIL_SPECIES_FETCH_SUCCESS'
 
+export const POKEMON_DETAIL_SET_NICKNAME = 'POKEMON_DETAIL_SET_NICKNAME'
+
 interface interfacePokemonMoves {
   move: {
     name: string,
@@ -25,7 +27,7 @@ export interface interfacePokemonDetailData {
   image?: string,
   owned: number,
   id: number,
-  nickname?: string,
+  nickname: string,
   moves: interfacePokemonMoves[],
   types: interfacePokemonTypes[],
   capture_rate: number,
@@ -88,6 +90,14 @@ const reducer = createReducer(INITIAL_STATE, {
       capture_rate: payload.capture_rate,
     },
   }),
+
+  [POKEMON_DETAIL_SET_NICKNAME]: (state: any, payload: string) => ({
+    ...state,
+    data: {
+      ...state.data,
+      nickname: payload,
+    }
+  })
 })
 
 export const pokemonDetailFetch = (payload: string) => ({
@@ -103,13 +113,17 @@ export const pokemonDetailFetchFailed = (payload: string) => ({
   payload,
 })
 
-
 export const pokemonDetailSpeciesFetch = (payload: string) => ({
   type: POKEMON_DETAIL_SPECIES_FETCH,
   payload,
 })
 export const pokemonDetailSpeciesFetchSuccess = (payload: any) => ({
   type: POKEMON_DETAIL_SPECIES_FETCH_SUCCESS,
+  payload,
+})
+
+export const pokemonDetailSetNickname = (payload: string) => ({
+  type: POKEMON_DETAIL_SET_NICKNAME,
   payload,
 })
 

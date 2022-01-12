@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate, useParams  } from 'react-router-dom'
 
-import { pokemonDetailFetch } from '../../Redux/Ducks/pokemonDetail'
+import { pokemonDetailFetch, pokemonDetailSetNickname } from '../../Redux/Ducks/pokemonDetail'
 import { pokeCatch } from '../../Utils/pokemon'
 import { getMyPokemons, addPokemons } from '../../Utils/localStorage'
 
@@ -48,12 +48,18 @@ const PokemonDetailContainer = () => {
   }
 
   const handleFindPokemon = () => {
+    setIsModalShow(false)
     navigate('/')
   }
 
   const handleSavePokemon = () => {
     setIsModalShow(false)
+    setIsModalShow(false)
     addPokemons(data)
+  }
+
+  const handleNickname = (nickname: string) => {
+    dispatch(pokemonDetailSetNickname(nickname))
   }
 
   const props = {
@@ -66,6 +72,7 @@ const PokemonDetailContainer = () => {
     handleReleasePokemon,
     handleFindPokemon,
     handleSavePokemon,
+    handleNickname,
   }
 
   return <PokemonDetailView {...props} />

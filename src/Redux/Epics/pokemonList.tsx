@@ -25,7 +25,6 @@ export function pokemonListFetchEpic(action$: any, state$: any, { api }: any) {
         }
       }).pipe(
         mergeMap((response: any) => {
-          console.log(getMyPokemons())
           const pokemonList = response.results.map((data: any) => {
             const id = pokeId(data.url)
             return {

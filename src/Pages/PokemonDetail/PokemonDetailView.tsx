@@ -4,6 +4,7 @@ import Section from '../../Components/Section'
 import Button from '../../Components/Button'
 import SectionLoading from '../../Components/SectionLoading'
 import Modal from '../../Components/Modal'
+import Input from '../../Components/Input'
 
 import { interfacePokemonDetailData } from '../../Redux/Ducks/pokemonDetail'
 import { pokeRemoveDash } from '../../Utils/pokemon'
@@ -18,6 +19,7 @@ interface interfacePokemonDetailView {
   handleReleasePokemon: () => void,
   handleFindPokemon: () => void,
   handleSavePokemon: () => void,
+  handleNickname: (value: string) => void,
 }
 
 const PokemonDetailView = ({
@@ -30,6 +32,7 @@ const PokemonDetailView = ({
   handleReleasePokemon,
   handleFindPokemon,
   handleSavePokemon,
+  handleNickname,
 }: interfacePokemonDetailView) => {
   return (
     <>
@@ -52,6 +55,7 @@ const PokemonDetailView = ({
             size="large"
             label={`${isCatch ? 'Save Pokemon' : 'Try to catch again..'}`}
             onClick={isCatch ? handleSavePokemon : handleCatchPokemon}
+            isDisabled={isCatch && pokemonDetail.nickname === ''}
             isFullWidth
           />
         }
@@ -60,10 +64,19 @@ const PokemonDetailView = ({
           {isCatching ? (
             <SectionLoading type="catch" />
           ) : (
-            <PokemonCard
-              name={pokemonDetail.name}
-              img={pokemonDetail.image}
-            />
+            <>
+              <PokemonCard
+                name={pokemonDetail.name}
+                img={pokemonDetail.image}
+              />
+              {isCatch && (
+                <Input
+                  value={pokemonDetail.nickname}
+                  onChange={(e) => handleNickname(e.target.value)}
+                  placeholder="Give a pokemon name.."
+                />
+              )}
+            </>
           )}
         </>
       </Modal>
