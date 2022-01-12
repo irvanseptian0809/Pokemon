@@ -1,0 +1,24 @@
+@import '../../Styles/app.scss';
+
+.section {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 2px solid $blue-900;
+  border-radius: $radius;
+  padding-bottom: 10px;
+
+  .section-title {
+    background-color: $blue-900;
+    border-bottom: 3px solid $yellow-200;
+    color: $yellow-200;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .section-body {
+    padding: 10px;
+  }
+}

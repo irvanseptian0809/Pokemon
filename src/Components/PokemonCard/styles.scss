@@ -1,0 +1,44 @@
+
+@import '../../Styles/app.scss';
+
+.pokemon-card {
+  // border: 3px solid $blue-900;
+  background-color: $yellow-500;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: $box-shadow;
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+
+  &:hover {
+    background-color: $yellow-600;
+  }
+
+  .pokemon-image {
+    background-color: $blue-100;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: $box-shadow;
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+
+    img {
+      width: 100%;
+      height: 100px;
+    }
+  }
+
+  .pokemon-detail {
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      color: $blue-900;
+    }
+
+    .owned {
+      padding-top: 10px;
+      font-size: 14px;
+    }
+  }
+}
