@@ -1,9 +1,20 @@
-const MyPokemonListView = ({
+import PokemonCard from '../../Components/PokemonCard'
+import { interfacePokemonDetailData } from "../../Redux/Ducks/pokemonDetail"
 
-}) => {
+interface interfaceMyPokemonList {
+  myPokemonList: interfacePokemonDetailData[],
+  removePokemon: (nickname: string) => void,
+}
+
+const MyPokemonListView = ({
+  myPokemonList,
+  removePokemon,
+}: interfaceMyPokemonList) => {
   return (
     <>
-      My Pokemon List
+      {myPokemonList.map((data: interfacePokemonDetailData) => (
+        <div>{data.name}</div>
+      ))}
     </>
   )
 }

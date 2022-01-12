@@ -5,7 +5,7 @@ import { mergeMap, catchError } from 'rxjs/operators'
 import { POKEMON_GET } from '../../Config/enpoints'
 
 import { pokeImage, pokeId, pokeRemoveDash } from '../../Utils/pokemon'
-import { getMyPokemonList } from '../../Utils/localStorage'
+import { getMyPokemons } from '../../Utils/localStorage'
 
 import {
   POKEMON_LIST_FETCH,
@@ -21,10 +21,11 @@ export function pokemonListFetchEpic(action$: any, state$: any, { api }: any) {
         endpoint: POKEMON_GET,
         query: {
           limit: 18,
-          offset: Math.random() * (((649 - 18) - 1) + 1),
+          offset: Math.round(Math.random() * (((649 - 18) - 1) + 1)),
         }
       }).pipe(
         mergeMap((response: any) => {
+          console.log(getMyPokemons())
           const pokemonList = response.results.map((data: any) => {
             const id = pokeId(data.url)
             return {
@@ -32,12 +33,12 @@ export function pokemonListFetchEpic(action$: any, state$: any, { api }: any) {
               name: pokeRemoveDash(data.name),
               id,
               image: pokeImage(id),
-              owned: getMyPokemonList().filter((item: any) => item.id === id).length,
+              owned: getMyPokemons().filter((item: any) => item.id === id).length,
             }
           })
           return of(pokemonListFetchSuccess(pokemonList))
         }),
-        catchError(() => of(pokemonListFetchFailed('Failed Fetching Data'))),
+        catchError((e) => of(pokemonListFetchFailed(e))),
       )
     ),
   )

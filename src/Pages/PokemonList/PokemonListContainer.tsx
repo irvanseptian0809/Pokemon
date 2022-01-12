@@ -1,14 +1,33 @@
 import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+import { pokemonListFetch } from '../../Redux/Ducks/pokemonList'
 
 import PokemonListView from './PokemonListView'
 
 const PokemonListContainer = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const state = useSelector((state: any) => state.pokemonList)
+
+  const { pokemonList, isLoading } = state
 
   useEffect(() => {
-    // Do Fetching Pokemon List
-  }, [])
+    dispatch(pokemonListFetch())
+  }, [dispatch])
 
-  return <PokemonListView />
+  const handlePokemonDetail = (pokemonName: string) => {
+    navigate('/pokemon-detail/'+pokemonName)
+  }
+
+  const props = {
+    pokemonList,
+    isLoading,
+    handlePokemonDetail,
+  }
+
+  return <PokemonListView {...props} />
 }
 
 export default PokemonListContainer

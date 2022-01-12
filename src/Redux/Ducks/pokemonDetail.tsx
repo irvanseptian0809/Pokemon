@@ -24,6 +24,7 @@ export interface interfacePokemonDetailData {
   name: string,
   image?: string,
   owned: number,
+  id: number,
   nickname?: string,
   moves: interfacePokemonMoves[],
   types: interfacePokemonTypes[],
@@ -40,8 +41,10 @@ export interface interfacePokemonDetail {
 export const INITIAL_STATE: interfacePokemonDetail = {
   data: {
     name: '',
+    nickname: '',
     image: '',
     owned: 0,
+    id: 0,
     moves: [],
     types: [],
     capture_rate: 0,

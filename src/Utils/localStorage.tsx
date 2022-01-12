@@ -1,14 +1,27 @@
 const itemName = 'mypokemon_192847111111'
 
-export const getMyPokemonList = () => {
+export const getMyPokemons = () => {
   const data = localStorage.getItem(itemName)
-  return JSON.parse(data || '[]')
+  const dataParse = JSON.parse(data || '[]')
+  return data ? dataParse.pokemons : dataParse
 }
 
-export const setMyPokemonList = (data: any) => {
-  return localStorage.setItem(itemName, JSON.stringify(data))
+export const addPokemons = (data: any) => {
+  let myPokemons = getMyPokemons()
+  myPokemons = {
+    pokemons: [...myPokemons ,data]
+  }
+  return localStorage.setItem(itemName, JSON.stringify(myPokemons))
 }
 
-export const removeAllPokemon = () => {
+export const removePokemon = (id: string) => {
+  let myPokemons = getMyPokemons()
+  myPokemons = {
+    pokemons: myPokemons.filter((data: any) => data.id !== id)
+  }
+  return localStorage.setItem(itemName, myPokemons)
+}
+
+export const removeAllPokemons = () => {
   return localStorage.removeItem(itemName)
 }

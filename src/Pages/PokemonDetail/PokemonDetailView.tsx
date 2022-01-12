@@ -1,9 +1,113 @@
-const PokemonDetailView = ({
+import PokemonCard from '../../Components/PokemonCard'
+import Label from '../../Components/Label'
+import Section from '../../Components/Section'
+import Button from '../../Components/Button'
+import SectionLoading from '../../Components/SectionLoading'
+import Modal from '../../Components/Modal'
 
-}) => {
+import { interfacePokemonDetailData } from '../../Redux/Ducks/pokemonDetail'
+import { pokeRemoveDash } from '../../Utils/pokemon'
+
+interface interfacePokemonDetailView {
+  pokemonDetail: interfacePokemonDetailData,
+  isLoading: boolean,
+  isModalShow: boolean,
+  isCatching: boolean,
+  isCatch: boolean,
+  handleCatchPokemon: () => void,
+  handleReleasePokemon: () => void,
+  handleFindPokemon: () => void,
+  handleSavePokemon: () => void,
+}
+
+const PokemonDetailView = ({
+  pokemonDetail,
+  isLoading,
+  isModalShow,
+  isCatching,
+  isCatch,
+  handleCatchPokemon,
+  handleReleasePokemon,
+  handleFindPokemon,
+  handleSavePokemon,
+}: interfacePokemonDetailView) => {
   return (
     <>
-      Pokemon Detail
+      <Modal
+        title={!isCatching ? isCatch ? 'Catched!' : 'Failed to catch' : ''}
+        isShow={isModalShow}
+        isLeftButton={!isCatching}
+        leftButton={
+          <Button
+            size="large"
+            type="secondary"
+            label={`${isCatch ? 'Release Pokemon' : 'Find another pokemon'}`}
+            onClick={isCatch ? handleReleasePokemon : handleFindPokemon}
+            isFullWidth
+          />
+        }
+        isRightButton={!isCatching}
+        rightButton={
+          <Button
+            size="large"
+            label={`${isCatch ? 'Save Pokemon' : 'Try to catch again..'}`}
+            onClick={isCatch ? handleSavePokemon : handleCatchPokemon}
+            isFullWidth
+          />
+        }
+      >
+        <>
+          {isCatching ? (
+            <SectionLoading type="catch" />
+          ) : (
+            <PokemonCard
+              name={pokemonDetail.name}
+              img={pokemonDetail.image}
+            />
+          )}
+        </>
+      </Modal>
+
+      {/* Content */}
+      {!isLoading ? (
+        <div className="grid">
+          <div className="col-3">
+            <PokemonCard
+              name={pokemonDetail.name}
+              img={pokemonDetail.image}
+              isOwned
+              owned={isCatch ? pokemonDetail.owned+1 : pokemonDetail.owned}
+              button={
+                !isCatch && <Button
+                  size="large"
+                  label="Catch Pokemon !!!"
+                  onClick={handleCatchPokemon}
+                  isFullWidth
+                />
+              }
+            />
+          </div>
+          <div className="col-9">
+            <Section title="Moves">
+              <>
+                {pokemonDetail.moves.map((data, index) => (
+                  <Label key={index} label={pokeRemoveDash(data.move.name)} />
+                ))}
+              </>
+            </Section>
+
+            <Section title="Types">
+              <>
+                {pokemonDetail.types.map((data, index) => (
+                  <Label key={index} label={pokeRemoveDash(data.type.name)} color="orange" />
+                ))}
+              </>
+            </Section>
+          </div>
+        </div>
+      ) : (
+        <SectionLoading />
+      )}
     </>
   )
 }

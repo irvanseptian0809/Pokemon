@@ -4,7 +4,7 @@ import { mergeMap, catchError } from 'rxjs/operators'
 
 import { POKEMON_GET, POKEMON_SPECIES_GET } from '../../Config/enpoints'
 import { pokeImage, pokeRemoveDash } from '../../Utils/pokemon'
-import { getMyPokemonList } from '../../Utils/localStorage'
+import { getMyPokemons } from '../../Utils/localStorage'
 
 import {
   POKEMON_DETAIL_FETCH,
@@ -27,7 +27,8 @@ export function pokemonDetailFetchEpic(action$: any, state$: any, { api }: any) 
           const pokemonDetail = {
             name: pokeRemoveDash(response.name),
             image: pokeImage(response.id),
-            owned: getMyPokemonList().filter((item: any) => item.id === response.id).length,
+            id: response.id,
+            owned: getMyPokemons().filter((item: any) => item.id === response.id).length,
             moves: response.moves,
             types: response.types,
           }

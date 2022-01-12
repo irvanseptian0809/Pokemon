@@ -7,8 +7,13 @@ export const pokeId = (url: string) => {
 }
 
 export const pokeCatch = (rate: number) => {
-  const catchRate = Math.round((1 / 255) * rate)/100
-  const isCatch = Math.random() < catchRate
+  const catchRate = (1 / 255) * rate
+  const mathRandom = Math.random()
+  console.log(rate)
+  console.log(((1 / 255) * rate))
+  console.log(mathRandom)
+  console.log('=================================')
+  const isCatch = mathRandom < catchRate
   return isCatch
 }
 
