@@ -3,14 +3,15 @@
 .section {
   width: 100%;
   margin-bottom: 20px;
-  border: 2px solid $blue-900;
+  border: 3px solid $dark-100;
   border-radius: $radius;
   padding-bottom: 10px;
+  box-shadow: $box-shadow;
 
   .section-title {
-    background-color: $blue-900;
-    border-bottom: 3px solid $yellow-200;
-    color: $yellow-200;
+    background-color: $dark-100;
+    border-bottom: 3px solid $yellow-600;
+    color: $blue-300;
     padding: 10px 20px;
     margin-bottom: 10px;
     text-align: left;

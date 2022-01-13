@@ -29,12 +29,12 @@ const PokemonCardView = ({
         <div className="title">{name}</div>
         
         {isOwned && (
-          <div className="owned">
+          <div className="info">
             {`Total Owned : ${owned}`}
           </div>
         )}
         {nickname && (
-          <div className="owned">
+          <div className="info">
             {`Name : ${nickname}`}
           </div>
         )}

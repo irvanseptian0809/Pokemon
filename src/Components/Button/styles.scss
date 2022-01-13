@@ -27,6 +27,11 @@
   }
 }
 
+.button-disabled {
+  background-color: $blue-600;
+  color: #CCCCCC;
+}
+
 .button-secondary {
   background-color: $red-900;
   color: #CCCCCC;

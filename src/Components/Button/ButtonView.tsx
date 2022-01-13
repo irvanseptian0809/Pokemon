@@ -19,7 +19,7 @@ const ButtonView = ({
 }: interfaceButtonView) => {
   return (
     <button
-      className={`button button-${size} button-${type} ${isFullWidth && 'full-width'}`}
+      className={`button button-${size} button-${type} ${isFullWidth && 'full-width'} ${isDisabled && 'button-disabled'}`}
       onClick={onClick}
       disabled={isDisabled}
     >

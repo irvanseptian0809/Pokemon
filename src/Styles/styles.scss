@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $color-body;
+  background-color: $dark-100;
   padding: 20px;
   margin: 0;
 }
@@ -21,11 +21,13 @@ ul.header li {
   margin: 0;
 }
 ul.header {
-  background-color: $yellow-900;
+  background-color: $dark-50;
   padding: 0;
+  border-radius: $radius;
+  border-bottom: 2px solid $yellow-600;
 }
 ul.header li a {
-  color: #FFF;
+  color: $blue-200;
   font-weight: bold;
   text-decoration: none;
   padding: 20px;
@@ -41,11 +43,6 @@ ul.header li a {
 }
 .content li {
   margin-bottom: 10px;
-}
-
-.container {
-  width: 900px;
-  margin: 20px auto;
 }
 
 .grid {
@@ -83,6 +80,10 @@ ul.header li a {
   grid-column: auto/span 12;
 }
 
+.logo {
+  width: 250px;
+}
+
 @media only screen and (max-width: $mobile) {
   .container {
     width: 95%;
@@ -95,4 +96,5 @@ ul.header li a {
   .col-3, .col-9, .col-12 {
     grid-column: auto/span 12;
   }
+  
 }

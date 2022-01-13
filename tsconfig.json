@@ -1,4 +1,7 @@
 {
+  "include": [
+    "src"
+  ],
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -20,7 +23,8 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
 }

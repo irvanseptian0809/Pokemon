@@ -1,18 +1,18 @@
-
 @import '../../Styles/app.scss';
 
 .pokemon-card {
-  // border: 3px solid $blue-900;
-  background-color: $yellow-500;
+  background-color: $dark-100;
   padding: 10px;
   border-radius: 5px;
+  border: 2px solid $yellow-600;
+  border-bottom: 10px solid $yellow-600;
   cursor: pointer;
   box-shadow: $box-shadow;
   -webkit-box-shadow: $box-shadow;
   -moz-box-shadow: $box-shadow;
 
   &:hover {
-    background-color: $yellow-600;
+    background-color: $dark-50;
   }
 
   .pokemon-image {
@@ -30,13 +30,14 @@
   }
 
   .pokemon-detail {
+    color: white;
     .title {
       font-size: 16px;
       font-weight: 600;
-      color: $blue-900;
+      color: $yellow-400;
     }
 
-    .owned {
+    .info {
       padding-top: 10px;
       font-size: 14px;
     }
