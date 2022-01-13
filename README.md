@@ -5,7 +5,7 @@ Visit here to play https://pokemon-mauve.vercel.app/
 ## How To Play
   - `Finding pokemon` menu it's for find some pokemon, if you don't find the pokemon that you like just click button `Find another pokemon`. If you find some ? just click the pokemon card to see detail of it's pokemon.
   - In the `Detail Pokemon` menu you can see detail of pokemon like `moves`, `types`, how much you have `owned`, if you like the pokemon just click `Catch Pokemon!!`.
-  - What determines success catching some pokemon is the `capture_rate`, more lower `capture_rate` more easier to catch the pokemon. If you didn't success just try again to catch, if the pokemon are really difficult to catch just `find another pokemon`, but if you catched ? you can save and give it a nickname or... you can leave it.
+  - What determines success catching some pokemon is the `capture_rate`, more lower `capture_rate` more harder to catch the pokemon. If you didn't success just try again to catch, if the pokemon are really difficult to catch just `find another pokemon`, but if you catched ? you can save and give it a nickname or... you can leave it.
   - Wanna see how much pokemons do you catch ? just go to the `My pokemons` menu.
 
 ## Available Scripts
