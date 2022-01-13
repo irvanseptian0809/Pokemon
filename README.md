@@ -8,6 +8,9 @@ Visit here to play https://pokemon-mauve.vercel.app/
   - What determines success catching some pokemon is the `capture_rate`, more lower `capture_rate` more harder to catch the pokemon. If you didn't success just try again to catch, if the pokemon are really difficult to catch just `find another pokemon`, but if you catched ? you can save and give it a nickname or... you can leave it.
   - Wanna see how much pokemons do you catch ? just go to the `My pokemons` menu.
 
+## Notes
+  - The pokemon limit is 649 based on the images.
+
 ## Available Scripts
 
 In the project directory, you can run:

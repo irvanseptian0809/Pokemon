@@ -37,7 +37,7 @@ export function pokemonListFetchEpic(action$: any, state$: any, { api }: any) {
           })
           return of(pokemonListFetchSuccess(pokemonList))
         }),
-        catchError((e) => of(pokemonListFetchFailed(e))),
+        catchError(() => of(pokemonListFetchFailed('Failed Fetching Data'))),
       )
     ),
   )
