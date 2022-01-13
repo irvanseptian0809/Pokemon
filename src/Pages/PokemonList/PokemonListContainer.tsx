@@ -21,10 +21,15 @@ const PokemonListContainer = () => {
     navigate('/pokemon-detail/'+pokemonName)
   }
 
+  const handleFintOtherPokemons = () => {
+    dispatch(pokemonListFetch())
+  }
+
   const props = {
     pokemonList,
     isLoading,
     handlePokemonDetail,
+    handleFintOtherPokemons,
   }
 
   return <PokemonListView {...props} />
