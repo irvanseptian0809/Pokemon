@@ -1,3 +1,4 @@
+import React from 'react'
 import PokemonCard from '../../Components/PokemonCard'
 import SectionLoading from '../../Components/SectionLoading'
 

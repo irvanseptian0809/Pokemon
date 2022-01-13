@@ -1,3 +1,4 @@
+import React from 'react'
 import PokemonCard from '../../Components/PokemonCard'
 import Label from '../../Components/Label'
 import Section from '../../Components/Section'
