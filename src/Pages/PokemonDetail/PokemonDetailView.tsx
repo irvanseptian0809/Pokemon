@@ -16,6 +16,7 @@ interface interfacePokemonDetailView {
   isModalShow: boolean,
   isCatching: boolean,
   isCatch: boolean,
+  isUsedNickname: boolean,
   handleCatchPokemon: () => void,
   handleReleasePokemon: () => void,
   handleFindPokemon: () => void,
@@ -29,6 +30,7 @@ const PokemonDetailView = ({
   isModalShow,
   isCatching,
   isCatch,
+  isUsedNickname,
   handleCatchPokemon,
   handleReleasePokemon,
   handleFindPokemon,
@@ -54,9 +56,9 @@ const PokemonDetailView = ({
         rightButton={
           <Button
             size="large"
-            label={`${isCatch ? 'Save Pokemon' : 'Try to catch again..'}`}
+            label={`${isCatch ? (isUsedNickname ? 'Nickname has been used' : 'Save Pokemon') : 'Try to catch again..'}`}
             onClick={isCatch ? handleSavePokemon : handleCatchPokemon}
-            isDisabled={isCatch && pokemonDetail.nickname === ''}
+            isDisabled={(isCatch && pokemonDetail.nickname === '') || isUsedNickname}
             isFullWidth
           />
         }

@@ -18,6 +18,7 @@ const PokemonDetailContainer = () => {
   const [isModalShow, setIsModalShow] = useState(false)
   const [isCatching, setIsCatching] = useState(false)
   const [isCatch, setIsCatch] = useState(false)
+  const [isUsedNickname, setIsUsedNickname] = useState(false)
 
   useEffect(() => {
     if (params.pokemon) {
@@ -61,6 +62,8 @@ const PokemonDetailContainer = () => {
   }
 
   const handleNickname = (nickname: string) => {
+    const myPokemons = getMyPokemons()
+    setIsUsedNickname(myPokemons.some((data: any) => data.nickname === nickname))
     dispatch(pokemonDetailSetNickname(nickname))
   }
 
@@ -74,6 +77,7 @@ const PokemonDetailContainer = () => {
     isModalShow,
     isCatching,
     isCatch,
+    isUsedNickname,
     handleCatchPokemon,
     handleReleasePokemon,
     handleFindPokemon,
