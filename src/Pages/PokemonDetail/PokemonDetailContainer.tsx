@@ -46,17 +46,20 @@ const PokemonDetailContainer = () => {
   const handleReleasePokemon = () => {
     setIsModalShow(false)
     setIsCatch(false)
+    setIsUsedNickname(false)
     resetNickname()
   }
 
   const handleFindPokemon = () => {
     setIsModalShow(false)
+    setIsUsedNickname(false)
     navigate('/')
   }
 
   const handleSavePokemon = () => {
     setIsModalShow(false)
     setIsModalShow(false)
+    setIsUsedNickname(false)
     addPokemons(data)
     resetNickname()
   }

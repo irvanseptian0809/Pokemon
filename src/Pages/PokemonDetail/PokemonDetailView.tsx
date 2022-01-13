@@ -56,9 +56,9 @@ const PokemonDetailView = ({
         rightButton={
           <Button
             size="large"
-            label={`${isCatch ? (isUsedNickname ? 'Nickname has been used' : 'Save Pokemon') : 'Try to catch again..'}`}
+            label={`${!isCatch ? 'Try to catch again..' : (isUsedNickname ? 'Nickname has been used' : 'Save Pokemon')}`}
             onClick={isCatch ? handleSavePokemon : handleCatchPokemon}
-            isDisabled={(isCatch && pokemonDetail.nickname === '') || isUsedNickname}
+            isDisabled={!isCatch && pokemonDetail.nickname === '' && isUsedNickname}
             isFullWidth
           />
         }
